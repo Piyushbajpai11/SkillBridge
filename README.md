@@ -74,8 +74,6 @@ SkillBridge/
 git clone https://github.com/Piyushbajpai11/SkillBridge.git
 cd SkillBridge
 
-### 2. Install Dependencies
-
 # Install backend
 cd server
 npm install
@@ -84,5 +82,5 @@ npm install
 cd ../client
 npm install
 
-### To Run:
+
 npm run dev
