@@ -10,21 +10,21 @@ const protect = async (req, res, next) => {
     ) {
         try {
             token = req.headers.authorization.split(' ')[1];
+
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
             req.user = await User.findById(decoded.id).select('-password');
-            next();
+            return next(); // ✅ Only move to next if successful
         } catch (error) {
-            res.status(401).json({ message: 'Not authorized, token failed' });
+            return res.status(401).json({ message: 'Not authorized, token failed' }); // ✅ return here
         }
     }
 
-    if (!token) {
-        res.status(401).json({ message: 'Not authorized, no token' });
-    }
+    // If no token at all
+    return res.status(401).json({ message: 'Not authorized, no token' }); // ✅ make sure it's not below try block
 };
 
-// Optional: Role-based middleware
+// Role-based middleware
 const authorizeRoles = (...roles) => {
     return (req, res, next) => {
         if (!roles.includes(req.user.role)) {

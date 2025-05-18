@@ -3,3 +3,9 @@ node_modules/
 dist/
 .vscode/
 .DS_Store
+changes.txt
+detailed_file_documentation.txt
+project_documentation.txt
+detailed_tailwind_documentation.txt
+Project.txt
+tailwind_documentation.txt

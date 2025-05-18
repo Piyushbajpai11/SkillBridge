@@ -20,8 +20,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    //Profile Fields.....
+    //Profile Fields........................................................
 
+    //Developer profile fields......
     bio: { type: String },
     skills: [String],
     github: { type: String },

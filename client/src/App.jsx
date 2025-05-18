@@ -7,7 +7,13 @@ import Profile from './pages/Profile';
 import Dashboard from './pages/Dashboard';
 import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar';
-
+import MyProjects from './pages/MyProjects';
+import CreateProject from './pages/CreateProject';
+import EditProject from './pages/EditProject';
+import FreelancerDashboard from './pages/FreelancerDashboard';
+import ProjectDetails from './pages/ProjectDetails';
+import BrowseProjects from './pages/BrowseProjects';
+import MyApplications from './pages/MyApplications';
 
 const Layout = () => {
     // const { user } = useAuth();
@@ -17,10 +23,18 @@ const Layout = () => {
         <>
             {!hideNavbar && <Navbar />}
             <Routes>
+                <Route path='/' element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/profile' element={<PrivateRoute><Profile /></PrivateRoute>} />
                 <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                <Route path="/my-projects" element={<PrivateRoute><MyProjects /></PrivateRoute>} />
+                <Route path="/create-project" element={<PrivateRoute><CreateProject /></PrivateRoute>} />
+                <Route path="/edit-project/:id" element={<PrivateRoute><EditProject /></PrivateRoute>} />
+                <Route path="/freelancer-dashboard" element={<PrivateRoute><FreelancerDashboard /></PrivateRoute>} />
+                <Route path="/projects/:id" element={<PrivateRoute><ProjectDetails /></PrivateRoute>} />
+                <Route path="/browse-projects" element={<BrowseProjects />} />
+                <Route path="/my-applications" element={<MyApplications />} />
             </Routes>
         </>
     )
